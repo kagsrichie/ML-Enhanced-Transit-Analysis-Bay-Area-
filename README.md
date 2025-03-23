@@ -24,6 +24,9 @@ Public transit systems face significant challenges in balancing limited resource
 - Analyzed 14 routes, 186 stops, and 2,620 trips across the BART system
 - Identified high-frequency routes (Oakland Airport to Coliseum with 503 trips) and lower-frequency routes (Millbrae/Daly City to Richmond with 123 trips)
 
+![Route Frequency Analysis](data/reports/route_frequency.png)
+*Route frequency analysis showing trip counts for each route*
+
 ### Machine Learning Components
 
 #### 1. Demand Prediction Model
@@ -31,17 +34,24 @@ Public transit systems face significant challenges in balancing limited resource
 - Used location, time of day, and contextual features to predict passenger demand
 - Identified morning (7-9 AM) and evening (4-6 PM) rush hours as critical demand periods
 
+![Morning Demand Heatmap](data/demand_heatmap_8.html)
+*Demand heatmap showing predicted passenger volumes during morning rush hour (8 AM)*
+
 #### 2. Geographic Clustering
 - Divided the transit network into 5 natural service areas
 - Found significant differences in stop density and activity levels between clusters
 - Cluster 0 (14 stops) and Cluster 3 (17 stops) showed the highest activity levels, suggesting major transit hubs
+
+![Stop Clusters](data/reports/stop_clusters.html)
+*Interactive map showing the 5 geographic service area clusters*
 
 #### 3. Route Optimization
 - Generated detailed hourly service recommendations for top routes
 - Major routes like Millbrae/SFIA to Antioch require up to 70 trips/hour during peak times
 - Demonstrated significant variations in optimal service frequency throughout the day
 
-![Route Optimization](route_optimization.png)
+![Route Optimization](data/reports/route_optimization.png)
+*Recommended service frequency by hour for top routes*
 
 ## 💡 Impact & Applications
 
@@ -56,6 +66,12 @@ The analysis shows potential for significant resource optimization:
 - Identified specific hours requiring increased service (primarily 12:00 and 16:00)
 - Detailed guidance on exactly how many trips per hour each route requires
 
+![Midday Demand Heatmap](data/demand_heatmap_12.html)
+*Demand heatmap showing predicted passenger volumes during midday peak (12 PM)*
+
+![Evening Demand Heatmap](data/demand_heatmap_17.html)
+*Demand heatmap showing predicted passenger volumes during evening rush hour (5 PM)*
+
 #### 3. Geographic Focus
 - Cluster analysis revealed which geographic areas require more service attention
 - Two clusters (0 and 3) account for over 65% of system activity, suggesting priority areas
@@ -67,6 +83,9 @@ Transit planners can use these results to:
 2. **Reallocate Resources**: Shift vehicles to high-demand routes during peak hours
 3. **Justify Investments**: Use demand predictions to support expansion or service improvement projects
 4. **Monitor Performance**: Compare actual ridership against ML predictions to continuously improve service
+
+![Underserved Stops](data/reports/underserved_stops.png)
+*Analysis of potentially underserved stops in the network*
 
 ## 📋 Complete Analysis Report
 
@@ -139,11 +158,19 @@ ML-Enhanced Public Transit System Analysis
 
 The system produced several valuable artifacts:
 
-1. **Route Frequency Analysis**: Visual representation of service levels across routes
-2. **Route Optimization Charts**: Hourly service recommendations for top routes
-3. **Geographic Cluster Map**: Interactive visualization of service area groupings
+1. **Route Frequency Analysis** (`route_frequency.png`): Visual representation of service levels across routes
+2. **Route Optimization Charts** (`route_optimization.png`): Hourly service recommendations for top routes
+3. **Geographic Cluster Map** (`stop_clusters.html`): Interactive visualization of service area groupings
 4. **Demand Heatmaps**: Visualizations of predicted demand patterns at different times
-5. **Comprehensive Report**: Detailed findings and recommendations
+   - Morning Rush Hour (`demand_heatmap_8.html`)
+   - Midday Peak (`demand_heatmap_12.html`)
+   - Evening Rush Hour (`demand_heatmap_17.html`) 
+   - Night Period (`demand_heatmap_22.html`)
+5. **Underserved Stops Analysis** (`underserved_stops.png`): Visualization of service gaps
+6. **Comprehensive Report** (`ml_transit_analysis.txt`): Detailed findings and recommendations
+
+![Night Demand Heatmap](data/demand_heatmap_22.html)
+*Demand heatmap showing predicted passenger volumes during evening/night (10 PM)*
 
 ## 🔧 Technologies Used
 
@@ -200,9 +227,7 @@ analyzer.generate_ml_report()
 ```
 ml-transit-analyzer/
 │
-├── ml_transit_analyzer.py   # Core implementation file
-├── analyze_transit_ml.py    # Example script
-├── requirements.txt         # Python dependencies
+├── transit optimization.ipynb   # Core implementation file
 ├── README.md                # Project documentation
 │
 ├── data/                    # Data directory
@@ -210,7 +235,9 @@ ml-transit-analyzer/
 │   │   ├── ml_transit_analysis.txt  # Comprehensive findings
 │   │   ├── route_frequency.png      # Route analysis visualization
 │   │   ├── route_optimization.png   # Service recommendations
-│   │   └── stop_clusters.html       # Interactive cluster map
+│   │   ├── stop_clusters.html       # Interactive cluster map
+│   │   ├── underserved_stops.csv    # Service gap data
+│   │   └── underserved_stops.png    # Service gap visualization
 │   │
 │   ├── demand_heatmap_8.html   # Morning demand visualization
 │   ├── demand_heatmap_12.html  # Midday demand visualization
