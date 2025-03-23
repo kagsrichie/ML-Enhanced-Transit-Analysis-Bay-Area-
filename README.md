@@ -273,9 +273,7 @@ analyzer.generate_ml_report()
 ```
 ml-transit-analyzer/
 │
-├── ml_transit_analyzer.py   # Core implementation file
-├── analyze_transit_ml.py    # Example script
-├── requirements.txt         # Python dependencies
+├── transit optimization.ipynb   # Core implementation file
 ├── README.md                # Project documentation
 │
 ├── data/                    # Data directory
