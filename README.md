@@ -68,6 +68,73 @@ Transit planners can use these results to:
 3. **Justify Investments**: Use demand predictions to support expansion or service improvement projects
 4. **Monitor Performance**: Compare actual ridership against ML predictions to continuously improve service
 
+## 📋 Complete Analysis Report
+
+```
+ML-Enhanced Public Transit System Analysis
+=======================================
+
+1. System Overview
+   - Total Routes: 14
+   - Total Stops: 186
+   - Total Trips: 2620
+
+2. Route Analysis
+   - Most Frequent Route: Oakland Airport to Coliseum (503 trips)
+   - Least Frequent Route: Millbrae/Daly City to Richmond (123 trips)
+
+3. Demand Prediction Model
+   - Model Type: GradientBoostingRegressor
+   - Algorithm: Gradient Boosting Regression
+   - Features: Location, time of day, and contextual variables
+   - Important Time Periods: Morning Rush (7-9 AM), Evening Rush (4-6 PM)
+
+4. Service Gap Analysis
+   - Potentially Underserved Stops: 0
+
+5. Geographic Cluster Analysis
+   - Number of Service Areas: 5
+   - Cluster 0: 14.0 stops, 14686 total activity
+   - Cluster 1: 9.0 stops, 5166 total activity
+   - Cluster 2: 7.0 stops, 2826 total activity
+   - Cluster 3: 17.0 stops, 13858 total activity
+   - Cluster 4: 3.0 stops, 1737 total activity
+
+6. Route Optimization Recommendations
+   - Route Oakland Airport to Coliseum:
+     * Peak Hour: 12:00
+     * Peak Demand: 165.3
+     * Recommended Peak Frequency: 8 trips/hour
+     * Recommended Daily Trips: 141
+   - Route Coliseum to Oakland Airport:
+     * Peak Hour: 12:00
+     * Peak Demand: 165.3
+     * Recommended Peak Frequency: 8 trips/hour
+     * Recommended Daily Trips: 141
+   - Route Millbrae/SFIA to Antioch:
+     * Peak Hour: 16:00
+     * Peak Demand: 1392.3
+     * Recommended Peak Frequency: 70 trips/hour
+     * Recommended Daily Trips: 1170
+   - Route Antioch to SFIA/Millbrae:
+     * Peak Hour: 16:00
+     * Peak Demand: 1392.3
+     * Recommended Peak Frequency: 70 trips/hour
+     * Recommended Daily Trips: 1170
+   - Route Dublin/Pleasanton to Daly City:
+     * Peak Hour: 16:00
+     * Peak Demand: 1165.4
+     * Recommended Peak Frequency: 58 trips/hour
+     * Recommended Daily Trips: 973
+
+7. Recommendations
+   - Increase service frequency on high-demand routes during peak hours
+   - Address service gaps in underserved areas identified by the demand model
+   - Consider route modifications to better connect high-demand areas
+   - Implement real-time service adjustments based on predicted demand patterns
+   - Focus additional resources on morning and evening rush hours
+```
+
 ## 📁 Generated Outputs
 
 The system produced several valuable artifacts:
@@ -77,23 +144,6 @@ The system produced several valuable artifacts:
 3. **Geographic Cluster Map**: Interactive visualization of service area groupings
 4. **Demand Heatmaps**: Visualizations of predicted demand patterns at different times
 5. **Comprehensive Report**: Detailed findings and recommendations
-
-```
-ML-Enhanced Public Transit System Analysis
-=======================================
-1. System Overview
-   - Total Routes: 14
-   - Total Stops: 186
-   - Total Trips: 2620
-2. Route Analysis
-   - Most Frequent Route: Oakland Airport to Coliseum (503 trips)
-   - Least Frequent Route: Millbrae/Daly City to Richmond (123 trips)
-3. Demand Prediction Model
-   - Model Type: GradientBoostingRegressor
-   - Algorithm: Gradient Boosting Regression
-   - Features: Location, time of day, and contextual variables
-   - Important Time Periods: Morning Rush (7-9 AM), Evening Rush (4-6 PM)
-```
 
 ## 🔧 Technologies Used
 
