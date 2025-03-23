@@ -66,11 +66,6 @@ The analysis shows potential for significant resource optimization:
 - Identified specific hours requiring increased service (primarily 12:00 and 16:00)
 - Detailed guidance on exactly how many trips per hour each route requires
 
-![Midday Demand Heatmap](data/demand_heatmap_12.html)
-*Demand heatmap showing predicted passenger volumes during midday peak (12 PM)*
-
-![Evening Demand Heatmap](data/demand_heatmap_17.html)
-*Demand heatmap showing predicted passenger volumes during evening rush hour (5 PM)*
 
 #### 3. Geographic Focus
 - Cluster analysis revealed which geographic areas require more service attention
@@ -84,8 +79,6 @@ Transit planners can use these results to:
 3. **Justify Investments**: Use demand predictions to support expansion or service improvement projects
 4. **Monitor Performance**: Compare actual ridership against ML predictions to continuously improve service
 
-![Underserved Stops](data/reports/underserved_stops.png)
-*Analysis of potentially underserved stops in the network*
 
 ## 📋 Complete Analysis Report
 
