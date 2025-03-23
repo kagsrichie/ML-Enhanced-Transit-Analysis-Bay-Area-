@@ -10,6 +10,30 @@ I've completed an ML-enhanced analysis of a public transit system (BART - Bay Ar
 
 Public transit systems face significant challenges in balancing limited resources against varying passenger demand patterns. Traditional transit planning often relies on historical data and manual analysis, which can miss emerging patterns and lead to service inefficiencies. This project addresses these challenges by applying machine learning to transit data.
 
+## 🤖 Machine Learning Models Used
+
+This project implements multiple machine learning models to analyze different aspects of transit operations:
+
+1. **Gradient Boosting Regressor** 
+   - Used for demand prediction at stops based on time and location
+   - Implemented using Scikit-learn's GradientBoostingRegressor
+   - Features: geographic coordinates, time of day, day type features
+   - Hyperparameters: 100 estimators, max depth of 5, learning rate of 0.1
+   - Performance: Achieved R² value of 0.9756 on test data
+
+2. **K-means Clustering**
+   - Used for geographic segmentation of transit network
+   - Implemented using Scikit-learn's KMeans algorithm
+   - Features: stop geographic coordinates and activity levels
+   - K=5 clusters determined after analysis of inertia values
+   - Used for identifying natural service areas within the network
+
+3. **Statistical Analysis Pipeline**
+   - Custom ML pipeline combining preprocessors and regression models
+   - Preprocessing: StandardScaler for numeric features
+   - Feature engineering: Time-based and location-based engineered features
+   - Used for service frequency optimization based on predicted demand
+
 ## ✨ Key Features
 
 - **Demand Prediction**: ML-based forecasting of passenger demand by location and time
@@ -33,14 +57,16 @@ Public transit systems face significant challenges in balancing limited resource
 - Successfully implemented a Gradient Boosting Regression model
 - Used location, time of day, and contextual features to predict passenger demand
 - Identified morning (7-9 AM) and evening (4-6 PM) rush hours as critical demand periods
+- Model training utilized 80% of data with 20% held for evaluation
 
 ![Morning Demand Heatmap](data/demand_heatmap_8.html)
 *Demand heatmap showing predicted passenger volumes during morning rush hour (8 AM)*
 
 #### 2. Geographic Clustering
-- Divided the transit network into 5 natural service areas
+- Divided the transit network into 5 natural service areas using K-means
 - Found significant differences in stop density and activity levels between clusters
 - Cluster 0 (14 stops) and Cluster 3 (17 stops) showed the highest activity levels, suggesting major transit hubs
+- Clustering based on geographic coordinates with activity level weighting
 
 ![Stop Clusters](data/reports/stop_clusters.html)
 *Interactive map showing the 5 geographic service area clusters*
@@ -49,6 +75,7 @@ Public transit systems face significant challenges in balancing limited resource
 - Generated detailed hourly service recommendations for top routes
 - Major routes like Millbrae/SFIA to Antioch require up to 70 trips/hour during peak times
 - Demonstrated significant variations in optimal service frequency throughout the day
+- Optimization algorithm balances predicted demand with operational constraints
 
 ![Route Optimization](data/reports/route_optimization.png)
 *Recommended service frequency by hour for top routes*
@@ -66,6 +93,11 @@ The analysis shows potential for significant resource optimization:
 - Identified specific hours requiring increased service (primarily 12:00 and 16:00)
 - Detailed guidance on exactly how many trips per hour each route requires
 
+![Midday Demand Heatmap](data/demand_heatmap_12.html)
+*Demand heatmap showing predicted passenger volumes during midday peak (12 PM)*
+
+![Evening Demand Heatmap](data/demand_heatmap_17.html)
+*Demand heatmap showing predicted passenger volumes during evening rush hour (5 PM)*
 
 #### 3. Geographic Focus
 - Cluster analysis revealed which geographic areas require more service attention
@@ -79,6 +111,8 @@ Transit planners can use these results to:
 3. **Justify Investments**: Use demand predictions to support expansion or service improvement projects
 4. **Monitor Performance**: Compare actual ridership against ML predictions to continuously improve service
 
+![Underserved Stops](data/reports/underserved_stops.png)
+*Analysis of potentially underserved stops in the network*
 
 ## 📋 Complete Analysis Report
 
@@ -146,6 +180,32 @@ ML-Enhanced Public Transit System Analysis
    - Implement real-time service adjustments based on predicted demand patterns
    - Focus additional resources on morning and evening rush hours
 ```
+
+## 📊 Model Performance Metrics
+
+The machine learning models achieved the following performance metrics:
+
+1. **Gradient Boosting Regressor (Demand Prediction)**
+   - Mean Absolute Error (MAE): 2.49
+   - Root Mean Squared Error (RMSE): 3.52
+   - R² Score: 0.9756
+   - Model validation confirms excellent predictive accuracy
+
+```
+Model Performance:
+   MAE: 2.49
+   RMSE: 3.52
+   R²: 0.9756
+   Model R² score: 0.9756
+```
+
+2. **K-means Clustering (Service Areas)**
+   - Successfully identified 5 distinct geographic service areas
+   - Clear separation between high-activity and lower-activity clusters
+
+3. **Route Optimization Algorithm**
+   - Produced specific hourly frequency recommendations for all routes
+   - Balanced predicted demand with practical operational constraints
 
 ## 📁 Generated Outputs
 
@@ -220,7 +280,9 @@ analyzer.generate_ml_report()
 ```
 ml-transit-analyzer/
 │
-├── transit optimization.ipynb   # Core implementation file
+├── ml_transit_analyzer.py   # Core implementation file
+├── analyze_transit_ml.py    # Example script
+├── requirements.txt         # Python dependencies
 ├── README.md                # Project documentation
 │
 ├── data/                    # Data directory
