@@ -1,6 +1,6 @@
 # Machine Learning Enhanced Transit Analysis System
 
-![Transit Analysis](https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80)
+![Route Frequency Analysis](data/reports/heatmap_22_predicted.png)
 
 ## 🚀 Project Overview
 
